@@ -97,11 +97,10 @@ typedef enum _khr_df_mask_e {
 
 /* Helper macro:
    Set field X of basic descriptor block BDB */
-#define KHR_DFDSETVAL(BDB, X, val) \
-    ((BDB)[KHR_DF_WORD_ ## X] = \
-     ((BDB)[KHR_DF_WORD_ ## X] & \
-      ~((KHR_DF_MASK_ ## X) << (KHR_DF_SHIFT_ ## X))) | \
-     (((val) & (KHR_DF_MASK_ ## X)) << (KHR_DF_SHIFT_ ## X)))
+#define KHR_DFDSETVAL(db, X, val) \
+    (*db = (*db & ~(static_cast<std::underlying_type<_khr_df_mask_e>::type>(KHR_DF_MASK_ ## X))) | \
+    ((static_cast<std::underlying_type<_khr_df_mask_e>::type>(val) & (static_cast<std::underlying_type<_khr_df_mask_e>::type>(KHR_DF_MASK_ ## X))) << (KHR_DF_SHIFT_ ## X)))
+
 
 /* Offsets relative to the start of a sample */
 typedef enum _khr_df_sampleword_e {
