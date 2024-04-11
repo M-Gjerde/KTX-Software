@@ -955,7 +955,7 @@ inst:
     StrCpy $INSTDIR "$DOCUMENTS\@CPACK_PACKAGE_INSTALL_DIRECTORY@"
 
   ClearErrors
-  UserInfo::GetName
+  UserInfo::getName
   IfErrors noLM
   Pop $0
   UserInfo::GetAccountType
