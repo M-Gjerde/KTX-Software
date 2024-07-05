@@ -876,7 +876,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         )
     endif()
 else()
-    message(FATAL_ERROR "${CMAKE_CXX_COMPILER_ID} not yet supported.")
+    message(WARNING "${CMAKE_CXX_COMPILER_ID} not yet supported.")
 endif()
 
 # Retrieve the final set of properties for use by the transcodetests.
