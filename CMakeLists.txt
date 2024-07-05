@@ -298,7 +298,7 @@ elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU"
         add_link_options( $<IF:$<CONFIG:Debug>,-g,-O3> )
     endif()
 else()
-    message(FATAL_ERROR "${CMAKE_CXX_COMPILER_ID} not yet supported.")
+    message(WARNING "${CMAKE_CXX_COMPILER_ID} not yet supported.")
 endif()
 
 # To improve output determinism enable precise floating point operations globally
